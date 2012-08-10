@@ -10,7 +10,7 @@ package GraphTest2_2;
  */
 public class MyLink {
     double capacity;    //  should be private
-    double weight;      //  should be private
+    public double weight;      //  should be private
     int id;
     
     static int edgeCount = 0;
