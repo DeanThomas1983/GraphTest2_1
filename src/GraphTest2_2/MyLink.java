@@ -9,7 +9,7 @@ package GraphTest2_2;
  * @author dean
  */
 public class MyLink {
-    double capacity;    //  should be private
+    public double capacity;    //  should be private
     public double weight;      //  should be private
     int id;
     
