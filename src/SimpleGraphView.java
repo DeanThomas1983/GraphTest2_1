@@ -8,6 +8,7 @@
 
 package Generic;
 
+import GraphTest2_2.MyLink;
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
 import edu.uci.ics.jung.algorithms.layout.Layout;
 import edu.uci.ics.jung.graph.Graph;
@@ -15,6 +16,7 @@ import edu.uci.ics.jung.graph.SparseMultigraph;
 import edu.uci.ics.jung.visualization.BasicVisualizationServer;
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import org.apache.commons.collections15.Factory;
 
 /**
  *
@@ -22,6 +24,25 @@ import javax.swing.JFrame;
  */
 public class SimpleGraphView {
     public Graph<Integer, String> g;
+    
+    public Factory<MyLink> edgeFactory = new Factory<MyLink>()
+        {
+            @Override
+            public MyLink create()
+            {
+                return new MyLink(1.0, 1.0);
+            }
+        };
+    
+    public Factory<MyLink> vertexFactory = new Factory<MyLink>()
+        {
+            @Override
+            public MyLink create()
+            {
+                return new MyLink(1.0, 1.0);
+            }
+        };
+    
     /** Creates a new instance of SimpleGraphView */
     public SimpleGraphView() {
         // Graph<V, E> where V is the type of the vertices and E is the type of the edges
