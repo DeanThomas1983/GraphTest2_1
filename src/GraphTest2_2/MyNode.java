@@ -11,6 +11,15 @@ package GraphTest2_2;
 public class MyNode {
     int id; // good coding practice would have this as private
     
+    static int staticID = 0;
+    
+    public MyNode()
+    {
+        this(staticID);
+        
+        staticID++;
+    }
+    
     public MyNode(int id)
     {
         this.id = id;

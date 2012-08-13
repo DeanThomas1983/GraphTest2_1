@@ -9,6 +9,7 @@
 package Generic;
 
 import GraphTest2_2.MyLink;
+import GraphTest2_2.MyNode;
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
 import edu.uci.ics.jung.algorithms.layout.Layout;
 import edu.uci.ics.jung.graph.Graph;
@@ -26,25 +27,26 @@ public class SimpleGraphView {
     public Graph<Integer, String> g;
     
     public Factory<MyLink> edgeFactory = new Factory<MyLink>()
+    {
+        @Override
+        public MyLink create()
         {
-            @Override
-            public MyLink create()
-            {
-                return new MyLink(1.0, 1.0);
-            }
-        };
+            return new MyLink(1.0, 1.0);
+        }
+    };
     
-    public Factory<MyLink> vertexFactory = new Factory<MyLink>()
+    public Factory<MyNode> vertexFactory = new Factory<MyNode>()
+    {
+        @Override
+        public MyNode create()
         {
-            @Override
-            public MyLink create()
-            {
-                return new MyLink(1.0, 1.0);
-            }
-        };
+            return new MyNode();
+        }
+    };
     
     /** Creates a new instance of SimpleGraphView */
-    public SimpleGraphView() {
+    public SimpleGraphView() 
+    {
         // Graph<V, E> where V is the type of the vertices and E is the type of the edges
         g = new SparseMultigraph<Integer, String>();
         // Add some vertices. From above we defined these to be type Integer.
